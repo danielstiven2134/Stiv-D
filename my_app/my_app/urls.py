@@ -24,5 +24,6 @@ urlpatterns = [
     path("hello/", include("hello.urls")),
     path("admin/", admin.site.urls),
     path('crear_factura/', views.crear_factura, name='crear_factura'),
+    path("__debug__/", include("debug_toolbar.urls")),
 
 ]
