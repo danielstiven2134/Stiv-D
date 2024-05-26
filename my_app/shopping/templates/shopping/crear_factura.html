@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Factura</title>
+</head>
+<body>
+    <h1>Crear Factura</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ factura_form.as_p }}
+        {{ detalle_form.as_p }}
+        <button type="submit">Crear Factura</button>
+    </form>
+</body>
+</html>
