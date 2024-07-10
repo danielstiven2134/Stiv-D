@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinacion</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav {
+            background-color: #e9e9e9;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #ddd;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .main-box {
+            width: 80%;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        .add-student {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        .students-list {
+            width: 80%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .students-list th, .students-list td {
+            border: 1px solid #ccc;
+            padding: 8px;
+        }
+        footer {
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 10px 0;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>buen dia </h1>
+        <img src="Coordinacion.png" alt="Logo" width="100" height="100">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Datos de aprendices</a></li>
+            <li><a href="calificaciones.html">calificaciones</a></li>
+            <li><a href="cursos.html">cursos</a></li>
+            <li><a href="competencia.html">competencias desarrolladas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Seguimiento de aprendices</h2>
+
+        <div class="main-box">
+            <div class="add-student">
+                <h3>Buscar datos de aprendices</h3>
+                <form action="{% url 'guardar_estudiante' %}" method="POST">
+                    
+                    <label for="nombre">Nombre del cruso:</label>
+                    <input type="text" id="nombre" name="nombre" required><br><br>
+
+                    <label for="edad">Profesor asignado:</label>
+                    <input type="text" id="edad" name="edad" required><br><br>
+
+                
+                    </select><br><br>
+
+                    <button type="submit">Buscar</button>
+                </form>
+            </div>
+            
+            <table class="students-list">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Numero de telefono</th>
+                        <th>correo electronico</th>
+                        <th>Curso</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se generan dinámicamente los datos de los estudiantes -->
+                 
+                        <tr>
+                            <td>{{ alumno.id_a }}</td>
+                            <td>{{ alumno.nom }}</td>
+                            <td>{{ alumno.edad }}</td>
+                            <td>{{ alumno.id_curso2 }}</td>
+                            <td>
+                                <a href="#">Editar</a> |
+                                <a href="#">Eliminar</a>
+                            </td>
+                        </tr>
+               
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>Coordinacion academica 2024</p>
+    </footer>
+</body>
+</html>
